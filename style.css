@@ -13,4 +13,6 @@ body {
     top: 0;
     left: 0;
     outline: none;
+    width: 800px;
+    height: 600px;
 }
