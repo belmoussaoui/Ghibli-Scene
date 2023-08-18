@@ -1,27 +1,21 @@
-console.log("hello world");
-
 const scene = new THREE.Scene();
 
-const sizes = {
-    width: window.innerWidth,
-    height: window.innerHeight
-}
 
-const camera = new THREE.PerspectiveCamera(75, sizes.width / sizes.height)
+// setup camera
+const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight)
 camera.position.z = 5;
 camera.position.y = 1;
 scene.add(camera)
 
-console.log(sizes);
-
+// setup render
 const canvas = document.querySelector('canvas#play')
 const renderer = new THREE.WebGLRenderer({ canvas: canvas })
-renderer.setSize(sizes.width, sizes.height)
+renderer.setSize(window.innerWidth, window.innerHeight)
 
 const controls = new THREE.OrbitControls(camera, canvas);
 
 function createFloor() {
-    const geometry = new THREE.CircleGeometry(2.5, 64); //taille,nb segments
+    const geometry = new THREE.CircleGeometry(2.5, 64); // taille, nb segments
     const material = new THREE.MeshBasicMaterial({
         color: 0x86E426,
         side: THREE.DoubleSide
@@ -34,10 +28,9 @@ function createFloor() {
 
 function createCylinder() {
     const geometry = new THREE.CylinderGeometry(0.2, 0.5, 3, 100);
-    const material = new THREE.MeshBasicMaterial({ color: 0xb76935, side: THREE.DoubleSide });
+    const material = new THREE.MeshBasicMaterial({ color: 0xb76935 });
     const cylinder = new THREE.Mesh(geometry, material);
     scene.add(cylinder);
-    //console.log("cylinder")
 }
 
 function createCone() {
@@ -56,7 +49,7 @@ createCylinder();
 createCone();
 
 function animate() {
-    requestAnimationFrame(animate); //crée une boucle qui permet de dessiner la scene à chaque fois que la page est chargée
+    requestAnimationFrame(animate); // crée une boucle qui permet de dessiner la scene à chaque fois que la page est chargée
     controls.update();
     renderer.render(scene, camera);
 }
@@ -64,11 +57,11 @@ function animate() {
 animate();
 
 function onWindowResize() {
-    sizes.width = window.innerWidth
-    sizes.height = window.innerHeight
-    camera.aspect = sizes.width / sizes.height
+    let width = window.innerWidth
+    let height = window.innerHeight
+    camera.aspect = width / height
     camera.updateProjectionMatrix()
-    renderer.setSize(sizes.width, sizes.height)
+    renderer.setSize(width, height)
 }
 
 window.addEventListener('resize', onWindowResize, false)
