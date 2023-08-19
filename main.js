@@ -12,8 +12,27 @@ const canvas = document.querySelector('canvas#play')
 const renderer = new THREE.WebGLRenderer({ canvas: canvas })
 renderer.setSize(window.innerWidth, window.innerHeight)
 renderer.shadowMap.enabled = true;
-
+const gltfLoader = new THREE.GLTFLoader();
 const controls = new THREE.OrbitControls(camera, canvas);
+
+gltfLoader.load(
+    '/models/tree.glb',
+    (gltf) => {
+        const model = gltf.scene.children[0];
+        console.log('success')
+        console.log(gltf)
+        scene.add(model)
+        model.position.y = 2;
+        model.position.z = 1;
+        model.position.x = 0.75;
+        model.rotation.y = Math.PI / 2;
+        //model.rotation.z = Math.PI / 2;
+
+        model.traverse((mesh) => {
+            mesh.material = new THREE.MeshStandardMaterial({ color: 0x188E2A });
+        });
+    }
+)
 
 function createFloor() {
     const geometry = new THREE.CircleGeometry(4, 64); // taille, nb segments
@@ -62,7 +81,7 @@ function createLight() {
 
 createFloor();
 createCylinder();
-createCone();
+//createCone();
 createLight();
 
 function animate() {
