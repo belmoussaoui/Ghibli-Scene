@@ -35,7 +35,7 @@ function createCylinder() {
 
 function createCone() {
     const geometry = new THREE.ConeGeometry(5, 20, 32);
-    const material = new THREE.MeshBasicMaterial({ color: 0x188E2A, side: THREE.DoubleSide });
+    const material = new THREE.MeshBasicMaterial({ color: 0x188E2A });
     const cone = new THREE.Mesh(geometry, material);
     cone.scale.x = 0.3;
     cone.scale.y = 0.12;
