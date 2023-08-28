@@ -16,7 +16,18 @@ loader.load(
 
     function(data) {
         file2 = data;
-        ghibliMaterial = new THREE.ShaderMaterial({ vertexShader: file2, fragmentShader: file1 });
+        ghibliMaterial = new THREE.ShaderMaterial({
+            vertexShader: file2,
+            fragmentShader: file1,
+            uniforms: {
+                uBaseColor: {value: new THREE.Color(0x49897C)},
+                uLineColor1: {value: new THREE.Color(0x808080)},
+                uLineColor2: {value: new THREE.Color("black")},
+                uAmbientLightColor: {value: new THREE.Color(0x050505)},
+                uDirLightColor: {value: new THREE.Color("white")},
+                uDirLightPos: {value: new THREE.Vector3(15, 15, 15)}
+            }
+        });
         console.log(data);
     }
 );
