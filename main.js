@@ -1,5 +1,27 @@
 import * as dat from "./node_modules/lil-gui/dist/lil-gui.esm.js";
 
+const loader = new THREE.FileLoader();
+var file1, file2;
+var ghibliMaterial;
+loader.load(
+    './shaders/fragment.glsl',
+
+    function(data) {
+        file1 = data;
+    }
+);
+
+loader.load(
+    './shaders/vertex.glsl',
+
+    function(data) {
+        file2 = data;
+        ghibliMaterial = new THREE.ShaderMaterial({ vertexShader: file2, fragmentShader: file1 });
+        console.log(data);
+    }
+);
+
+console.log(file1, file2);
 const scene = new THREE.Scene();
 
 const gui = new dat.GUI();
@@ -59,7 +81,7 @@ gltfLoader.load("/models/tree.glb", (gltf) => {
 
             return;
         }
-        mesh.material = toonMaterial;
+        mesh.material = ghibliMaterial;
         mesh.castShadow = true;
     });
 });
