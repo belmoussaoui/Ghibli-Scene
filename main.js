@@ -1,4 +1,4 @@
-import * as dat from "./node_modules/lil-gui/dist/lil-gui.esm.js";
+// import * as dat from "./node_modules/lil-gui/dist/lil-gui.esm.js";
 
 const loader = new THREE.FileLoader();
 var file1, file2;
@@ -35,7 +35,7 @@ loader.load(
 console.log(file1, file2);
 const scene = new THREE.Scene();
 
-const gui = new dat.GUI();
+// const gui = new dat.GUI();
 const parameters = {
     color: 0x12401d,
 };
@@ -72,13 +72,13 @@ toonMaterial.gradientMap = gradientTexture;
 
 const trunkMaterial = new THREE.MeshToonMaterial({ color: 0x44341f });
 
-gui.addColor(parameters, "color").onChange(() => {
-    toonMaterial.color.set(parameters.color);
-});
+// gui.addColor(parameters, "color").onChange(() => {
+//     toonMaterial.color.set(parameters.color);
+// });
 
-gui.addColor(trunk, "color").onChange(() => {
-    trunkMaterial.color.set(trunk.color);
-});
+// gui.addColor(trunk, "color").onChange(() => {
+//     trunkMaterial.color.set(trunk.color);
+// });
 
 const gltfLoader = new THREE.GLTFLoader();
 gltfLoader.load("/models/tree.glb", (gltf) => {

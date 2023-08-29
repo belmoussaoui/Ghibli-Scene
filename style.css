@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     /* background-color: rgb(225, 242, 248); */
-    background-color: #FFF3AF;
 }
 
 html,
@@ -11,6 +10,8 @@ body {
 }
 
 #play {
+    background-color: #FFF3AF;
+
     position: fixed;
     top: 0;
     left: 0;
