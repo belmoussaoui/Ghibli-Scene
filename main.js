@@ -4,29 +4,29 @@ const loader = new THREE.FileLoader();
 var file1, file2;
 var ghibliMaterial;
 loader.load(
-    './shaders/fragment.glsl',
+    "./shaders/fragment.glsl",
 
-    function(data) {
+    function (data) {
         file1 = data;
     }
 );
 
 loader.load(
-    './shaders/vertex.glsl',
+    "./shaders/vertex.glsl",
 
-    function(data) {
+    function (data) {
         file2 = data;
         ghibliMaterial = new THREE.ShaderMaterial({
             vertexShader: file2,
             fragmentShader: file1,
             uniforms: {
-                uBaseColor: {value: new THREE.Color(0x49897C)},
-                uLineColor1: {value: new THREE.Color(0x808080)},
-                uLineColor2: {value: new THREE.Color("black")},
-                uAmbientLightColor: {value: new THREE.Color(0x050505)},
-                uDirLightColor: {value: new THREE.Color("white")},
-                uDirLightPos: {value: new THREE.Vector3(15, 15, 15)}
-            }
+                uBaseColor: { value: new THREE.Color(0x49897c) },
+                uLineColor1: { value: new THREE.Color(0x808080) },
+                uLineColor2: { value: new THREE.Color("black") },
+                uAmbientLightColor: { value: new THREE.Color(0x050505) },
+                uDirLightColor: { value: new THREE.Color("white") },
+                uDirLightPos: { value: new THREE.Vector3(10, 10, 15) },
+            },
         });
         console.log(data);
     }
@@ -41,7 +41,8 @@ const parameters = {
 };
 
 const trunk = {
-    color: 0x44341f,
+    // color: 0x44341f,
+    color: 0x483E32,
 };
 
 // setup camera
