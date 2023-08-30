@@ -1,4 +1,5 @@
 {
+  "homepage": "https://belmoussaoui.github.io/Ghibli-Scene",
   "dependencies": {
     "lil-gui": "^0.18.2"
   }
