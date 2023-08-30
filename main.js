@@ -41,6 +41,9 @@ const controls = new THREE.OrbitControls(camera, canvas);
 controls.autoRotate = false;
 controls.enableDamping = true;
 controls.maxPolarAngle = Math.PI / 2;
+controls.maxDistance = 10;
+controls.minDistance = 3;
+controls.enablePan = false;
 
 const trunkMaterial = new THREE.MeshToonMaterial({ color: 0x44341f });
 
