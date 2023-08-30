@@ -81,7 +81,7 @@ const trunkMaterial = new THREE.MeshToonMaterial({ color: 0x44341f });
 // });
 
 const gltfLoader = new THREE.GLTFLoader();
-gltfLoader.load("/models/tree.glb", (gltf) => {
+gltfLoader.load("./models/tree.glb", (gltf) => {
     const model = gltf.scene;
     scene.add(model);
     model.position.y = 1.1;
