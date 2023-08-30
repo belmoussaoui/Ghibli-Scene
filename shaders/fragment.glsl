@@ -1,20 +1,9 @@
-uniform vec3 uBaseColor;
-uniform vec3 uLineColor1;
-uniform vec3 uLineColor2;
-// uniform vec3 uLineColor3;
-// uniform vec3 uLineColor4;
-
-uniform vec3 uDirLightPos;
-uniform vec3 uDirLightColor;
-
-uniform vec3 uAmbientLightColor;
-
 varying vec3 vNormal;
 
 void main() {
 
     float camera = max( dot( normalize( vNormal ), vec3( 0.0, 0.0, 1.0 ) ), 0.4);
-    float light = max( dot( normalize( vNormal ), uDirLightPos ), 0.0);
+    float light = max( dot( normalize( vNormal ), vec3(10.0, 10.0, 15.0) ), 0.0);
 
     gl_FragColor = vec4(0.26275, 0.45961, 0.44706, 1.0);
     if (length(light) > 0.0) {
