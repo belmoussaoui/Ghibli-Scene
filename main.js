@@ -2,6 +2,13 @@ const loader = new THREE.FileLoader();
 var file1, file2;
 var ghibliMaterial;
 loader.load(
+    "./shaders/vertex.glsl",
+
+    function(data) {
+        file2 = data;
+    }
+);
+loader.load(
     "./shaders/fragment.glsl",
 
     function(data) {
@@ -9,17 +16,6 @@ loader.load(
     }
 );
 
-loader.load(
-    "./shaders/vertex.glsl",
-
-    function(data) {
-        file2 = data;
-        ghibliMaterial = new THREE.ShaderMaterial({
-            vertexShader: file2,
-            fragmentShader: file1
-        });
-    }
-);
 
 const scene = new THREE.Scene();
 
@@ -49,6 +45,10 @@ const trunkMaterial = new THREE.MeshToonMaterial({ color: 0x44341f });
 
 const gltfLoader = new THREE.GLTFLoader();
 gltfLoader.load("./models/tree.glb", (gltf) => {
+    ghibliMaterial = new THREE.ShaderMaterial({
+        vertexShader: file2,
+        fragmentShader: file1
+    });
     const model = gltf.scene;
     scene.add(model);
     model.position.y = 1.1;
