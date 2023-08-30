@@ -26,6 +26,4 @@ void main() {
     if (length(light) > 9.99) {
         gl_FragColor = vec4( 0.40392, 0.65882, 0.57255, 1.0 );
     }
-
-
 }
