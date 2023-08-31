@@ -1,21 +1,8 @@
 const loader = new THREE.FileLoader();
 var file1, file2;
 var ghibliMaterial;
-loader.load(
-    "./shaders/vertex.glsl",
-
-    function(data) {
-        file2 = data;
-    }
-);
-loader.load(
-    "./shaders/fragment.glsl",
-
-    function(data) {
-        file1 = data;
-    }
-);
-
+file2 = await loader.loadAsync("./shaders/vertex.glsl");
+file1 = await loader.loadAsync("./shaders/fragment.glsl");
 
 const scene = new THREE.Scene();
 
