@@ -1,4 +1,4 @@
-# Ghibli-Scene
+# Ghibli-Scene :deciduous_tree:
 
 Ghibli-inspired tree coded in ThreeJS
 
